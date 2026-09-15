@@ -74,14 +74,16 @@
 .hero-cta-group {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   margin-bottom: 36px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 480px) {
   .hero-cta-group {
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
   }
 }
 
@@ -98,19 +100,19 @@
 .hero-trust-bar {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-top: 22px;
+  gap: 8px;
+  padding-top: 20px;
   border-top: 1px solid var(--line);
   font-size: 13.5px;
   color: var(--steel);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 560px) {
   .hero-trust-bar {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: 20px;
+    gap: 16px 24px;
   }
 }
 

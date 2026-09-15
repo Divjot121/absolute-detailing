@@ -97,8 +97,8 @@
 }
 
 .tint-check {
-  color: #1a7a3c;
-  font-weight: bold;
+  color: var(--navy);
+  flex-shrink: 0;
 }
 
 .tinting-consultation-box {

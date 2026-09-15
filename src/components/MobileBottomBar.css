@@ -6,7 +6,7 @@
   height: calc(var(--mobile-bar-height) + var(--safe-area-bottom));
   padding-bottom: var(--safe-area-bottom);
   background-color: var(--navy);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 999;
   display: block;
 }
@@ -32,8 +32,8 @@
   min-height: 48px;
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 13.5px;
-  letter-spacing: 0.8px;
+  font-size: 13px;
+  letter-spacing: 1px;
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -42,7 +42,12 @@
 }
 
 .mobile-bar-btn:active {
-  opacity: 0.85;
+  opacity: 0.8;
+}
+
+.mobile-bar-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: -3px;
 }
 
 /* Call button */

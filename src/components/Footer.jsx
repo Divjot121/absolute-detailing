@@ -1,5 +1,6 @@
 import React from 'react';
 import { BUSINESS_CONFIG } from '../config/businessConfig';
+import { analytics } from '../lib/analytics';
 import { Phone } from 'lucide-react';
 import { InstagramIcon } from './icons/InstagramIcon';
 import './Footer.css';

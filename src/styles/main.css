@@ -12,6 +12,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -23,12 +24,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-bottom: calc(var(--mobile-bar-height) + var(--safe-area-bottom));
+  overflow-x: hidden;
 }
 
 @media (min-width: 769px) {
   body {
     padding-bottom: 0;
   }
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-layout main {
+  flex: 1;
 }
 
 /* ==========================================================================
@@ -142,6 +154,11 @@ img {
 
 .section-dark p {
   color: #c9d2db;
+}
+
+.section-dark .section-subtitle,
+.section-dark .section-eyebrow + .section-subtitle {
+  color: #B0C4D8;
 }
 
 .section-header {

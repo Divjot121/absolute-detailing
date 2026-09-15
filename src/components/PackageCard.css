@@ -11,7 +11,8 @@
 }
 
 .package-card:hover {
-  border-color: #B5B0A4;
+  border-color: #A9A499;
+  box-shadow: 0 2px 12px rgba(16, 38, 63, 0.06);
 }
 
 .package-card.is-recommended {
@@ -55,7 +56,6 @@
   color: var(--steel);
   line-height: 1.5;
   margin-bottom: 0;
-  min-height: 40px;
 }
 
 /* Pricing Block */

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BUSINESS_CONFIG } from '../../config/businessConfig';
+import { analytics } from '../../lib/analytics';
 import { Check, Phone, Info } from 'lucide-react';
 import { InstagramIcon } from '../icons/InstagramIcon';
 
