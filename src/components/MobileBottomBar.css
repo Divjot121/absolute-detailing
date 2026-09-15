@@ -1,0 +1,67 @@
+.mobile-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--mobile-bar-height) + var(--safe-area-bottom));
+  padding-bottom: var(--safe-area-bottom);
+  background-color: var(--navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 999;
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .mobile-bottom-bar {
+    display: none;
+  }
+}
+
+.mobile-bar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  height: 100%;
+}
+
+.mobile-bar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 100%;
+  min-height: 48px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 13.5px;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 16px;
+  transition: opacity var(--transition-fast);
+}
+
+.mobile-bar-btn:active {
+  opacity: 0.85;
+}
+
+/* Call button */
+.mobile-call-btn {
+  background-color: var(--navy);
+  color: var(--off-white);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mobile-call-btn svg {
+  color: var(--brass);
+}
+
+/* Book button: Signal Red (Primary Conversion) */
+.mobile-book-btn {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.mobile-book-btn svg {
+  color: var(--white);
+}

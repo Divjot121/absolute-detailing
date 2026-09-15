@@ -1,0 +1,70 @@
+.how-it-works-section {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 44px;
+}
+
+@media (min-width: 768px) {
+  .how-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+.how-step-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #FAF9F6;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 32px 24px;
+  transition: border-color var(--transition-fast);
+}
+
+.how-step-card:hover {
+  border-color: #B5B0A4;
+}
+
+.how-step-num-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.how-num {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.how-rule {
+  flex-grow: 1;
+  height: 1.5px;
+  background-color: var(--brass);
+}
+
+.how-step-title {
+  font-size: 19px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.how-step-desc {
+  font-size: 14px;
+  color: var(--steel);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.how-action-row {
+  margin-top: 4px;
+}

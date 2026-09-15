@@ -1,0 +1,50 @@
+.contact-cta-section {
+  padding: 88px 0;
+  background-color: var(--navy);
+}
+
+.cta-title {
+  font-size: clamp(28px, 3.8vw, 40px);
+  margin-bottom: 12px;
+}
+
+.cta-subtitle {
+  font-size: 16px;
+  color: #c9d2db;
+  max-width: 580px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.cta-buttons-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 500px) {
+  .cta-buttons-row {
+    flex-direction: row;
+  }
+}
+
+.cta-btn-main {
+  font-size: 15px;
+  padding: 13px 26px;
+  min-width: 190px;
+}
+
+.cta-btn-phone {
+  font-size: 14.5px;
+  padding: 13px 22px;
+  min-width: 190px;
+}
+
+.cta-guarantee-note {
+  font-size: 12.5px;
+  color: #92A3B3;
+  letter-spacing: 0.3px;
+}

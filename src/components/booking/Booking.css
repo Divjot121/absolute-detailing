@@ -1,0 +1,945 @@
+/* ==========================================================================
+   Booking Section & Progressive Multi-Step Engine (Senior UI/UX Polish)
+   ========================================================================== */
+.booking-section {
+  background-color: #FAF9F6;
+  border-bottom: 1px solid var(--line);
+}
+
+.booking-card-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Progress Tracker (Desktop & Mobile Refined)
+   -------------------------------------------------------------------------- */
+.booking-progress-container {
+  background-color: #F3F1EC;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 24px;
+  position: relative;
+}
+
+/* Mobile Progress Header */
+.mobile-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 640px) {
+  .mobile-progress-header {
+    display: none;
+  }
+}
+
+.mobile-progress-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--navy);
+}
+
+.mobile-step-cur {
+  font-size: 14px;
+  color: var(--navy);
+}
+
+.mobile-step-sep {
+  color: var(--steel);
+}
+
+.mobile-step-total {
+  font-size: 12px;
+  color: var(--steel);
+}
+
+.mobile-step-title {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--navy);
+}
+
+/* Desktop Linear Steps */
+.desktop-steps-list {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .desktop-steps-list {
+    display: flex;
+  }
+}
+
+.booking-step-item {
+  display: flex;
+  align-items: center;
+}
+
+.step-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 6px 4px;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  color: var(--steel);
+}
+
+.step-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.step-number-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--steel);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--steel);
+  background-color: var(--white);
+}
+
+.booking-step-item.is-active .step-number-wrap {
+  border-color: var(--navy);
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+.booking-step-item.is-completed .step-number-wrap {
+  border-color: var(--navy);
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+.step-label {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.booking-step-item.is-active .step-label {
+  color: var(--navy);
+}
+
+.booking-step-item.is-completed .step-label {
+  color: var(--charcoal);
+}
+
+.step-connector-dash {
+  color: var(--line);
+  margin: 0 8px;
+  user-select: none;
+}
+
+/* Animated Progress Bar Track */
+.progress-bar-track {
+  width: 100%;
+  height: 2px;
+  background-color: var(--line);
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--brass);
+}
+
+/* --------------------------------------------------------------------------
+   Step Content Area
+   -------------------------------------------------------------------------- */
+.booking-card-inner {
+  padding: 22px 14px;
+  overflow: hidden;
+}
+
+@media (min-width: 480px) {
+  .booking-card-inner {
+    padding: 32px 24px;
+  }
+}
+
+@media (min-width: 640px) {
+  .booking-card-inner {
+    padding: 44px 38px;
+  }
+}
+
+.step-intro {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.step-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: var(--brass);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.step-title {
+  font-size: 23px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.step-subtitle {
+  font-size: 14px;
+  color: var(--steel);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.step-validation-error {
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  border: 1px solid var(--error-border);
+  padding: 12px 16px;
+  border-radius: var(--radius-xs);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+/* Step 2: Package Step Grid */
+.package-step-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 600px) {
+  .package-step-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.booking-package-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  position: relative;
+}
+
+.booking-package-card:hover {
+  border-color: #B5B0A4;
+  background-color: #FAF9F6;
+}
+
+.booking-package-card:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.booking-package-card.is-selected {
+  border: 2px solid var(--navy);
+  background-color: #F8F7F3;
+}
+
+.bp-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.bp-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bp-selector-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-xs);
+  border: 1.5px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+}
+
+.booking-package-card.is-selected .bp-selector-circle {
+  background-color: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+.bp-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.bp-desc {
+  font-size: 12.5px;
+  color: var(--steel);
+  line-height: 1.4;
+  margin-bottom: 12px;
+  min-height: 35px;
+}
+
+.bp-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.bp-price {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.bp-cur {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.bp-duration {
+  font-size: 11px;
+  color: var(--steel);
+}
+
+.bp-inclusions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--charcoal);
+}
+
+.bp-inclusion-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.bp-check-icon {
+  color: var(--navy);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.bp-more-note {
+  font-size: 11px;
+  color: var(--steel);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* Pet Hair Addon Card */
+.pet-hair-addon-card {
+  background-color: #F8F7F3;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brass);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.checkbox-custom-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  min-height: 48px;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-xs);
+  border: 1.5px solid var(--steel);
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all var(--transition-fast);
+}
+
+.custom-checkbox.is-checked {
+  background-color: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+.checkbox-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.checkbox-price-tag {
+  font-family: var(--font-serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--brass);
+}
+
+.checkbox-subtext {
+  font-size: 12.5px;
+  color: var(--steel);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+/* Step 3: Operational Requirements Card */
+.operational-notice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: #F8F7F3;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--steel);
+  padding: 14px 16px;
+  border-radius: var(--radius-xs);
+  margin-top: 14px;
+  font-size: 12.5px;
+  color: var(--steel);
+  line-height: 1.5;
+}
+
+.op-notice-icon {
+  color: var(--navy);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.op-notice-text strong {
+  display: block;
+  font-size: 12.5px;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.op-notice-text p {
+  margin: 0;
+  color: var(--steel);
+}
+
+/* Step 4: Time Slot Cards Grid */
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+@media (min-width: 540px) {
+  .time-slots-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.time-slot-card {
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  min-height: 72px;
+  justify-content: space-between;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.time-slot-card:hover {
+  border-color: #A9A499;
+  background-color: #FAF9F6;
+}
+
+.time-slot-card.is-selected {
+  border: 2px solid var(--navy);
+  background-color: #F8F7F3;
+}
+
+.time-slot-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.time-slot-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.time-slot-lucide-icon {
+  color: var(--steel);
+}
+
+.time-slot-card.is-selected .time-slot-lucide-icon {
+  color: var(--navy);
+}
+
+.time-slot-name {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.3px;
+}
+
+.slot-check-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.indicator-empty-box {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-xs);
+  background-color: var(--white);
+}
+
+.indicator-check-box {
+  width: 16px;
+  height: 16px;
+  background-color: var(--navy);
+  color: var(--white);
+  border-radius: var(--radius-xs);
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-slot-hours {
+  font-size: 12.5px;
+  color: var(--steel);
+  margin-top: 4px;
+}
+
+/* Step 5: Review Cards & Section Edit Buttons */
+.review-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.review-card {
+  background-color: #FAF9F6;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 20px 22px;
+}
+
+.review-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.review-card-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--navy);
+  margin: 0;
+}
+
+.review-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid var(--line);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  padding: 6px 12px;
+  min-height: 40px;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+}
+
+.review-edit-btn:hover {
+  border-color: var(--navy);
+  background-color: rgba(16, 38, 63, 0.06);
+}
+
+.review-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 6px 0;
+  font-size: 13.5px;
+  gap: 16px;
+}
+
+.review-label {
+  color: var(--steel);
+  font-size: 13px;
+}
+
+.review-val {
+  color: var(--charcoal);
+  text-align: right;
+}
+
+.review-pricing-divider {
+  height: 1px;
+  background-color: var(--line);
+  margin: 12px 0;
+}
+
+.pricing-ledger {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ledger-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: var(--steel);
+}
+
+.tax-exempt-row {
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.ledger-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 8px;
+}
+
+.total-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.total-amount {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.total-subtext {
+  font-size: 11.5px;
+  color: var(--steel);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.submission-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: #F3F1EC;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--steel);
+  line-height: 1.45;
+  margin-bottom: 28px;
+}
+
+.submission-disclaimer svg {
+  color: var(--navy);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Step Action Buttons */
+.step-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  gap: 12px;
+}
+
+.step-btn-prev {
+  min-width: 84px;
+  min-height: 48px;
+  padding: 12px 16px;
+}
+
+.step-btn-next,
+.step-btn-submit {
+  flex: 1;
+  max-width: 240px;
+  min-height: 48px;
+  padding: 12px 20px;
+}
+
+@media (max-width: 380px) {
+  .step-actions {
+    gap: 8px;
+  }
+
+  .step-btn-prev {
+    min-width: 76px;
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+
+  .step-btn-next,
+  .step-btn-submit {
+    padding: 12px 12px;
+    font-size: 13.5px;
+  }
+}
+
+.btn-loading-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Booking Success State (Ink Navy & Brass, Zero Green)
+   -------------------------------------------------------------------------- */
+.booking-success-wrapper {
+  text-align: center;
+  padding: 20px 12px;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.success-icon-badge-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: var(--navy);
+  border: 2px solid var(--brass);
+  margin-bottom: 16px;
+}
+
+.success-brass-icon {
+  color: var(--brass);
+}
+
+.success-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--brass);
+  margin-bottom: 8px;
+}
+
+.success-heading {
+  font-size: 26px;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.success-copy {
+  font-size: 15px;
+  color: var(--steel);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.success-receipt-card {
+  background-color: #FAF9F6;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 20px 22px;
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.receipt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 14px;
+}
+
+.receipt-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--steel);
+}
+
+.receipt-id {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.receipt-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 500px) {
+  .receipt-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.receipt-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.receipt-label {
+  font-size: 11.5px;
+  color: var(--steel);
+}
+
+.receipt-val {
+  font-size: 13.5px;
+  color: var(--charcoal);
+  font-weight: 500;
+}
+
+.success-notice-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--steel);
+  background-color: #F3F1EC;
+  border-radius: var(--radius-xs);
+  padding: 10px 14px;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.success-notice-strip svg {
+  flex-shrink: 0;
+  color: var(--navy);
+}
+
+.success-actions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 520px) {
+  .success-actions-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.success-btn {
+  min-height: 46px;
+  padding: 11px 18px;
+  font-size: 13.5px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar-fill,
+  .booking-card-inner * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

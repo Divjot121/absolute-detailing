@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Absolute Car Wash & Detailing — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Domine:wght@600;700&family=Public+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #10263F;
+      --steel: #64707A;
+      --brass: #B08D3E;
+      --red: #D62828;
+      --off-white: #F6F5F1;
+      --charcoal: #1C1F22;
+      --line: #DAD6CC;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--off-white);
+      color: var(--charcoal);
+      font-family: 'Public Sans', system-ui, sans-serif;
+      line-height: 1.55;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Domine', Georgia, serif;
+      color: var(--navy);
+      margin: 0;
+    }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 24px 96px;
+    }
+
+    .masthead {
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 20px;
+      margin-bottom: 44px;
+    }
+
+    .masthead h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .masthead p {
+      color: var(--steel);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    section>h2 {
+      font-size: 20px;
+      border-left: 4px solid var(--brass);
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
+
+    .note {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--red);
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--steel);
+      border-radius: 2px;
+    }
+
+    /* logo */
+    .logo-block {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .logo-block .word {
+      font-family: 'Domine', serif;
+      font-weight: 700;
+      font-size: 44px;
+      color: var(--navy);
+      letter-spacing: 2px;
+    }
+
+    .logo-block .rule {
+      width: 65%;
+      height: 3px;
+      background: var(--brass);
+      margin: 14px auto;
+    }
+
+    .logo-block .ltag {
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--steel);
+      letter-spacing: 3px;
+    }
+
+    .logo-variants {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo-chip {
+      flex: 1;
+      min-width: 150px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 18px 14px;
+      text-align: center;
+    }
+
+    .logo-chip.dark {
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .logo-chip .word {
+      font-family: 'Domine', serif;
+      font-weight: 700;
+      font-size: 19px;
+      color: var(--navy);
+      letter-spacing: 1px;
+    }
+
+    .logo-chip.dark .word {
+      color: var(--off-white);
+    }
+
+    .logo-chip p {
+      font-size: 11px;
+      color: var(--steel);
+      margin: 8px 0 0;
+    }
+
+    .logo-chip.dark p {
+      color: #c9d2db;
+    }
+
+    /* colour swatches */
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .swatch {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .swatch .fill {
+      height: 70px;
+    }
+
+    .swatch .info {
+      padding: 10px 12px;
+    }
+
+    .swatch .info b {
+      font-size: 13px;
+      display: block;
+    }
+
+    .swatch .info span {
+      font-size: 12px;
+      color: var(--steel);
+      font-family: monospace;
+    }
+
+    .swatch .info em {
+      display: block;
+      font-style: normal;
+      font-size: 12px;
+      color: var(--steel);
+      margin-top: 4px;
+    }
+
+    /* type specimen */
+    .specimen {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 28px;
+    }
+
+    .specimen h3 {
+      font-size: 34px;
+      margin-bottom: 6px;
+    }
+
+    .specimen h4 {
+      font-family: 'Domine', serif;
+      font-size: 19px;
+      color: var(--navy);
+      margin: 0 0 14px;
+      font-weight: 600;
+    }
+
+    .specimen p {
+      margin: 0 0 14px;
+      font-size: 15px;
+      max-width: 60ch;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--steel);
+      font-family: monospace;
+      margin-bottom: 4px;
+    }
+
+    /* buttons */
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 4px;
+      text-decoration: none;
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+    }
+
+    .btn-caption {
+      font-size: 12px;
+      color: var(--steel);
+      margin-top: 8px;
+    }
+
+    /* poster mock */
+    .mock-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .poster {
+      width: 230px;
+      height: 380px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .poster .top {
+      padding: 10px 12px;
+      border-bottom: 2px solid var(--brass);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .poster .logo {
+      font-family: 'Domine', serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--navy);
+    }
+
+    .poster .hero {
+      flex: 1;
+      background: linear-gradient(135deg, #c9ccd1, #e4e6e9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--steel);
+      font-size: 11px;
+    }
+
+    .poster .text {
+      padding: 12px 14px 6px;
+    }
+
+    .poster .text h5 {
+      font-family: 'Domine', serif;
+      font-size: 15px;
+      color: var(--navy);
+      margin: 0 0 4px;
+    }
+
+    .poster .text p {
+      font-size: 11px;
+      color: var(--steel);
+      margin: 0;
+    }
+
+    .poster .cta-band {
+      background: var(--red);
+      color: #fff;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* website mock */
+    .site {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .site header {
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site header .logo {
+      font-family: 'Domine', serif;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .site header nav {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      opacity: .85;
+    }
+
+    .site .hero {
+      display: flex;
+    }
+
+    .site .hero .copy {
+      flex: 1;
+      padding: 32px 28px;
+    }
+
+    .site .hero .copy h3 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .site .hero .copy p {
+      font-size: 14px;
+      color: var(--steel);
+      max-width: 34ch;
+      margin-bottom: 18px;
+    }
+
+    .site .hero .img {
+      flex: 1;
+      background: linear-gradient(135deg, #c9ccd1, #e4e6e9);
+      min-height: 180px;
+    }
+
+    .site .mobilebar {
+      background: var(--charcoal);
+      color: #fff;
+      display: flex;
+    }
+
+    .site .mobilebar div {
+      flex: 1;
+      text-align: center;
+      padding: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .site .mobilebar .dm {
+      background: var(--red);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    td,
+    th {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--steel);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: none;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 16px 18px;
+    }
+
+    .box h4 {
+      font-family: 'Domine', serif;
+      font-size: 15px;
+      color: var(--navy);
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .ok {
+      color: #1a7a3c;
+    }
+
+    .no {
+      color: var(--red);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="masthead">
+      <h1>Absolute Car Wash &amp; Detailing — Design System</h1>
+      <p>One set of rules for every poster and every website screen. Style: clean traditional corporate, trust-first.
+        Job: get the eye to the CTA, every time.</p>
+    </div>
+
+    <section>
+      <h2>1. Logo</h2>
+      <div class="logo-block">
+        <div class="word">ABSOLUTE</div>
+        <div class="rule"></div>
+        <div class="ltag">CAR WASH &amp; DETAILING</div>
+      </div>
+      <p class="btn-caption" style="margin-top:14px;">Full lockup — wordmark + brass rule + tagline. Domine 700 navy,
+        brass rule at 65% width, Public Sans 600 steel tagline at +3px tracking. Use it on the poster top strip, the
+        website header/footer, and letterhead.</p>
+
+      <div class="logo-variants">
+        <div class="logo-chip">
+          <div class="word">ABSOLUTE</div>
+          <p>Wordmark only — nav bars, favicon, anywhere the full lockup is too small to read</p>
+        </div>
+        <div class="logo-chip dark">
+          <div class="word">ABSOLUTE</div>
+          <p>Off-white version for navy backgrounds — never the navy version on navy</p>
+        </div>
+        <div class="logo-chip">
+          <div class="word" style="font-size:15px;line-height:1.4;">ABSOLUTE<br>CAR WASH &amp; DETAILING</div>
+          <p>Stacked, tight crop — for circular social profile photos, since the wide lockup gets clipped</p>
+        </div>
+      </div>
+      <p class="note" style="margin-top:16px;">Built from scratch to match this system exactly — the colour tokens below
+        need no swapping.</p>
+    </section>
+
+    <section>
+      <h2>2. Colour tokens</h2>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="fill" style="background:var(--navy)"></div>
+          <div class="info"><b>Ink Navy</b><span>#10263F</span><em>Headers, headlines, nav bar</em></div>
+        </div>
+        <div class="swatch">
+          <div class="fill" style="background:var(--steel)"></div>
+          <div class="info"><b>Steel Grey</b><span>#64707A</span><em>Body support text, dividers</em></div>
+        </div>
+        <div class="swatch">
+          <div class="fill" style="background:var(--brass)"></div>
+          <div class="info"><b>Brass</b><span>#B08D3E</span><em>Thin accent lines &amp; badges only</em></div>
+        </div>
+        <div class="swatch">
+          <div class="fill" style="background:var(--red)"></div>
+          <div class="info"><b>Signal Red</b><span>#D62828</span><em>CTA only — nothing else is ever red</em></div>
+        </div>
+        <div class="swatch">
+          <div class="fill" style="background:var(--off-white);border-bottom:1px solid var(--line)"></div>
+          <div class="info"><b>Off-White</b><span>#F6F5F1</span><em>Base background</em></div>
+        </div>
+        <div class="swatch">
+          <div class="fill" style="background:var(--charcoal)"></div>
+          <div class="info"><b>Charcoal</b><span>#1C1F22</span><em>Body text</em></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:16px;">These are now final, not placeholders — locked in from the logo itself,
+        so every poster, ad, and page pulls from the same six values.</p>
+    </section>
+
+    <section>
+      <h2>3. Type</h2>
+      <div class="specimen">
+        <span class="tag">Domine 700 — Headlines</span>
+        <h3>Detailing done right, every time.</h3>
+        <span class="tag">Domine 600 — Subheads</span>
+        <h4>Mobile or shop, Brampton to Vaughan.</h4>
+        <span class="tag">Public Sans 400 — Body</span>
+        <p>Public Sans is the same family used on official U.S. government sites — it reads as plain, honest, and easy
+          to trust at a glance, which is the whole job of a "traditional corporate" service brand. Domine carries the
+          traditional, established feel in headlines only; everything else stays sans-serif for readability on small
+          posters and phone screens.</p>
+      </div>
+      <p class="btn-caption">Both are free Google Fonts — zero licensing cost. Load once, use everywhere (posters
+        exported from Canva/Illustrator, and the live website).</p>
+    </section>
+
+    <section>
+      <h2>4. The CTA button — one rule</h2>
+      <p style="max-width:60ch;font-size:14px;color:var(--steel);margin-top:-6px;">Red is reserved <b>only</b> for the
+        action you want taken. It never appears as decoration, a headline colour, or a background. That's what makes it
+        findable in under a second.</p>
+      <div class="btn-row">
+        <div class="btn btn-primary">Message us on Instagram</div>
+        <div class="btn btn-secondary">Book online</div>
+      </div>
+      <p class="btn-caption">Primary (red, filled) = your highest-intent channel right now — Instagram DM. Secondary
+        (navy outline) = website booking, shown smaller until the booking site is live, then you can promote it to
+        primary. Minimum tap height 48px — under Google's and Apple's own touch-target guidance, anything smaller hurts
+        mobile usability scoring.</p>
+    </section>
+
+    <section>
+      <h2>5. Poster layout — "logo → hero → beacon"</h2>
+      <div class="mock-row">
+        <div class="poster">
+          <div class="top"><span class="logo">ABSOLUTE</span><span style="font-size:9px;color:var(--steel)">Brampton,
+              ON</span></div>
+          <div class="hero">real photo of the car / job</div>
+          <div class="text">
+            <h5>Interior detail, $80</h5>
+            <p>Sedans &amp; hatchbacks · Silver package</p>
+          </div>
+          <div class="cta-band"><span>DM to book</span><span>@absolutcardetailngs</span></div>
+        </div>
+        <div style="max-width:340px;">
+          <table>
+            <tr>
+              <th>Zone</th>
+              <th>Rule</th>
+            </tr>
+            <tr>
+              <td>Top strip</td>
+              <td>Logo + thin brass line. Same position on every poster so repeat viewers recognise it instantly.</td>
+            </tr>
+            <tr>
+              <td>Hero</td>
+              <td>Real photo of an actual car/job — never a stock photo. This is a detailing service; the proof is
+                visual.</td>
+            </tr>
+            <tr>
+              <td>Text block</td>
+              <td>One headline (price or offer), one support line. No more than that — a poster is read in 2 seconds.
+              </td>
+            </tr>
+            <tr>
+              <td>CTA band</td>
+              <td>Fixed red bar, bottom of every layout. Contact path never moves, so the eye learns where to look.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Website — same logic, same bar</h2>
+      <div class="site">
+        <header>
+          <span class="logo">ABSOLUTE</span>
+          <nav><span>Services</span><span>Pricing</span><span>Contact</span></nav>
+          <div class="btn btn-primary" style="padding:8px 16px;font-size:13px;min-height:auto;">Message us</div>
+        </header>
+        <div class="hero">
+          <div class="copy">
+            <h3>Detailing done right, every time.</h3>
+            <p>Mobile or shop service across Brampton, Mississauga, Bolton and Vaughan.</p>
+            <div class="btn-row" style="margin-top:0;">
+              <div class="btn btn-primary" style="padding:11px 18px;font-size:13px;">Message us on Instagram</div>
+              <div class="btn btn-secondary" style="padding:11px 18px;font-size:13px;">See prices</div>
+            </div>
+          </div>
+          <div class="img"></div>
+        </div>
+        <div class="mobilebar">
+          <div class="dm">DM us</div>
+          <div>Call now</div>
+        </div>
+      </div>
+      <p class="btn-caption">Header CTA stays visible on scroll (sticky). Every section below the fold can repeat a
+        plain-text line + small button, but the red button itself only ever says one of two things — never a third or
+        fourth option competing for attention. On mobile, the bottom bar keeps both contact paths in thumb reach at all
+        times.</p>
+    </section>
+
+    <section>
+      <h2>7. Do / Don't</h2>
+      <div class="grid2">
+        <div class="box">
+          <h4>Do</h4>
+          <ul>
+            <li>Keep red exclusive to the CTA, on every asset</li>
+            <li>Use real job/car photos, shot in landscape for posters, square for Instagram</li>
+            <li>Repeat the same CTA wording site-wide ("Message us on Instagram") so it's instantly recognisable</li>
+            <li>Match the Meta ad's CTA button to its actual destination — if the ad opens Instagram DMs, the button
+              must say "Send Message," not "Book Now"</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>Don't</h4>
+          <ul>
+            <li>Don't stretch or recolour the logo per-poster — one approved version, used as-is</li>
+            <li>Don't use brass as a text colour — it fails accessibility contrast on light backgrounds (tested 2.86:1,
+              needs 4.5:1); hairlines and badges only</li>
+            <li>Don't add a second accent colour "just for this one poster" — it breaks the pattern viewers are learning
+            </li>
+            <li>Don't run a Meta ad with a "Learn More" button pointing at an Instagram profile — Meta's policy requires
+              the CTA to reflect the actual on-click action</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. Compliance checkpoints (2026)</h2>
+      <table>
+        <tr>
+          <th>Check</th>
+          <th>Why it matters here</th>
+        </tr>
+        <tr>
+          <td>Contrast ratio</td>
+          <td>White text on Signal Red = 5.0:1, on Navy = 15.3:1 — both pass WCAG AA. Never put white text on Brass
+            (3.1:1, fails for normal text).</td>
+        </tr>
+        <tr>
+          <td>Tap targets</td>
+          <td>Every button ≥48px tall on mobile — below Google's mobile-usability threshold, buttons get mis-tapped and
+            hurt conversion.</td>
+        </tr>
+        <tr>
+          <td>Meta CTA-destination match</td>
+          <td>Ad objective (Messages vs Traffic) must match the on-screen button copy, or the ad can get flagged in
+            review/lower quality ranking.</td>
+        </tr>
+        <tr>
+          <td>Google Business Profile</td>
+          <td>Keep the same phone number, service area wording and primary CTA verb across GBP, website and posters —
+            consistency is a local-SEO trust signal.</td>
+        </tr>
+      </table>
+    </section>
+
+  </div>
+</body>
+
+</html>

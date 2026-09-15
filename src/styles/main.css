@@ -1,0 +1,450 @@
+@import './variables.css';
+
+/* ==========================================================================
+   Base Reset & Foundation
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--off-white);
+  color: var(--charcoal);
+  line-height: 1.55;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: calc(var(--mobile-bar-height) + var(--safe-area-bottom));
+}
+
+@media (min-width: 769px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   Typography Hierarchy — Domine & Public Sans
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--navy);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(32px, 4.5vw, 48px);
+}
+
+h2 {
+  font-size: clamp(24px, 3.2vw, 34px);
+}
+
+h3 {
+  font-size: clamp(19px, 2.2vw, 22px);
+}
+
+h4 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 0.85rem;
+  color: var(--charcoal);
+  line-height: 1.6;
+}
+
+p.lead {
+  font-size: 17px;
+  color: var(--steel);
+  line-height: 1.65;
+}
+
+small, .text-muted {
+  color: var(--steel);
+  font-size: 13px;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: #081523;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Layout Containers & Section Rhythm
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.section {
+  padding: 72px 0;
+}
+
+@media (min-width: 960px) {
+  .section {
+    padding: 96px 0;
+  }
+}
+
+.section-dark {
+  background-color: var(--navy);
+  color: var(--off-white);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: var(--off-white);
+}
+
+.section-dark p {
+  color: #c9d2db;
+}
+
+.section-header {
+  margin-bottom: 48px;
+}
+
+.section-header.text-center {
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--steel);
+  margin-bottom: 12px;
+}
+
+.section-dark .section-eyebrow {
+  color: var(--brass);
+}
+
+.section-title {
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--steel);
+  margin-top: 0;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Brand Wordmark Lockup (Faithful to design_system.html)
+   ========================================================================== */
+.logo-lockup {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-lockup .logo-word {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--navy);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.logo-lockup .logo-rule {
+  width: 65%;
+  height: 2px;
+  background-color: var(--brass);
+  margin: 5px 0 4px;
+}
+
+.logo-lockup .logo-tagline {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 8.5px;
+  color: var(--steel);
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Dark mode lockup (for navy footer) */
+.logo-lockup.logo-dark .logo-word {
+  color: var(--off-white);
+}
+
+.logo-lockup.logo-dark .logo-tagline {
+  color: #c9d2db;
+}
+
+/* ==========================================================================
+   Buttons & CTAs (Strict Brand Hierarchy — Signal Red Exclusive)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 24px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14.5px;
+  letter-spacing: 0.2px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  border: 1px solid transparent;
+  line-height: 1.2;
+  white-space: nowrap;
+  gap: 8px;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+/* PRIMARY CTA ONLY: Signal Red */
+.btn-primary {
+  background-color: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+
+.btn-primary:hover {
+  background-color: #BD1C1C;
+  border-color: #BD1C1C;
+  color: var(--white);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* Secondary CTA: Navy outline */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+
+.btn-secondary:hover {
+  background-color: var(--navy);
+  color: var(--off-white);
+}
+
+/* Light outline for dark sections */
+.btn-secondary-light {
+  background-color: transparent;
+  color: var(--off-white);
+  border: 1.5px solid var(--off-white);
+}
+
+.btn-secondary-light:hover {
+  background-color: var(--off-white);
+  color: var(--navy);
+}
+
+/* Tertiary / Outline button */
+.btn-outline {
+  background-color: var(--white);
+  color: var(--navy);
+  border: 1px solid var(--line);
+}
+
+.btn-outline:hover {
+  border-color: var(--navy);
+  background-color: #FAF9F6;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Editorial Badges & Architectural Accents
+   ========================================================================== */
+.badge-brass {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--brass);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 1.2px;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.badge-steel {
+  display: inline-flex;
+  align-items: center;
+  background-color: #EAE7DF;
+  color: var(--steel);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Form Controls (Crisp, High Legibility, 48px Minimum)
+   ========================================================================== */
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+  letter-spacing: 0.1px;
+}
+
+.form-label .required-indicator {
+  color: var(--red);
+  margin-left: 2px;
+}
+
+.form-control {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  font-family: var(--font-sans);
+  font-size: 16px; /* 16px prevents iOS Safari automatic page zoom */
+  color: var(--charcoal);
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--navy);
+}
+
+.form-control.has-error {
+  border-color: var(--error-border);
+  background-color: var(--error-bg);
+}
+
+textarea.form-control {
+  min-height: 96px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.form-error {
+  display: block;
+  font-size: 12.5px;
+  color: var(--error-text);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.form-hint {
+  display: block;
+  font-size: 12px;
+  color: var(--steel);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* Visually hidden for a11y */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: var(--navy);
+  color: var(--off-white);
+  padding: 10px 16px;
+  z-index: 1000;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: var(--radius-xs);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 15px;
+}

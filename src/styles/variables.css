@@ -1,0 +1,49 @@
+:root {
+  /* ==========================================================================
+     Strict Brand Palette — Source: design_system.html
+     ========================================================================== */
+  --navy: #10263F;        /* Headers, navigation, headlines, dark sections */
+  --steel: #64707A;       /* Secondary copy, metadata, subtle borders, dividers */
+  --brass: #B08D3E;       /* Hairline rules, small badges, subtle premium accents only */
+  --red: #D62828;         /* PRIMARY CTA ONLY — booking/conversion moments */
+  --off-white: #F6F5F1;   /* Primary page canvas */
+  --charcoal: #1C1F22;    /* Highly readable body text */
+  --line: #DAD6CC;        /* Crisp 1px borders */
+  
+  /* Supporting Neutral Tones */
+  --white: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-alt: #FAF9F6;
+  --surface-muted: #EFECE6;
+  --border-muted: #E2DFD7;
+  --border-dark: #10263F;
+
+  /* Functional Validation States */
+  --error-bg: #FEF2F2;
+  --error-text: #991B1B;
+  --error-border: #DC2626;
+  --success-bg: #F0FDF4;
+  --success-text: #166534;
+  --success-border: #16A34A;
+  
+  /* Typography */
+  --font-serif: 'Domine', Georgia, "Times New Roman", serif;
+  --font-sans: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Layout Dimensions */
+  --container-max-width: 1160px;
+  --header-height: 72px;
+  --header-height-mobile: 62px;
+  --mobile-bar-height: 56px;
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  
+  /* Architectural Corners (Strictly Restrained — 2px to 3px) */
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 3px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-out;
+  --transition-normal: 0.22s ease-out;
+}

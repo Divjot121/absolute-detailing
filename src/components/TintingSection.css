@@ -1,0 +1,141 @@
+.tinting-section {
+  background-color: #FAF9F6;
+  border-bottom: 1px solid var(--line);
+}
+
+.tinting-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto 36px;
+}
+
+@media (min-width: 640px) {
+  .tinting-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tinting-card {
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 26px 22px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.tinting-badge-top {
+  position: absolute;
+  top: -10px;
+  right: 18px;
+}
+
+.tinting-card-title {
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 14px;
+}
+
+.tinting-pricing-row {
+  display: flex;
+  justify-content: space-between;
+  background-color: #FAF9F6;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.tint-price-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.tint-price-label {
+  font-size: 11px;
+  color: var(--steel);
+}
+
+.tint-price-val {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.tint-price-val small {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--steel);
+}
+
+.tinting-divider {
+  height: 1px;
+  background-color: var(--line);
+  margin-bottom: 16px;
+}
+
+.tinting-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-size: 12.5px;
+  color: var(--charcoal);
+}
+
+.tinting-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.45;
+}
+
+.tint-check {
+  color: #1a7a3c;
+  font-weight: bold;
+}
+
+.tinting-consultation-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brass);
+  border-radius: var(--radius-sm);
+  padding: 22px 26px;
+}
+
+.consultation-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: var(--navy);
+}
+
+.consultation-header strong {
+  font-size: 14.5px;
+}
+
+.consultation-header svg {
+  color: var(--brass);
+}
+
+.tinting-consultation-box p {
+  font-size: 13px;
+  color: var(--steel);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.consultation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
